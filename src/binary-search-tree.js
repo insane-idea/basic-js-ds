@@ -121,6 +121,10 @@ module.exports = class BinarySearchTree {
   }
 
   max() {
+    if (!this.root1) {
+      return;
+    }
+
     return checkRight(this.root1);
 
     function checkRight(node) {
@@ -131,8 +135,8 @@ module.exports = class BinarySearchTree {
       let maxValue = node;
       while (maxValue.right) {
         maxValue = maxValue.right;
-        checkRight(maxValue);
       }
+      checkRight(maxValue);
 
       return maxValue.data;
     }
